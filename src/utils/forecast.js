@@ -9,7 +9,9 @@ const forecast = (latitude, longitude, callback) => {
         } else if (body.error) {
             callback('Ivalide longitude or latitude!', undefined);
         } else {
-            let data = `${body.daily.data[0].summary} It is currently ${body.currently.temperature} degrees out. There is a ${Math.round(body.currently.precipProbability * 100)}% chance of rain`;
+            let data = `${body.daily.data[0].summary} It is currently ${body.currently.temperature} degrees out.
+            There is a ${Math.round(body.currently.precipProbability * 100)}% chance of rain.
+            The wind speed is ${body.currently.windSpeed}`;
             callback(undefined, data);
         }
     })
